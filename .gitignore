@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+%VIRTUAL_ENV%/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Virtual environment created in workspace root
+.venv/
+
+# PyInstaller
+dist/
+build/
+
+# Logs
+*.log
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+
+# Flask instance folder
+instance/
+
+# Ignore node_modules if any
+node_modules/
