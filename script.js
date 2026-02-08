@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get references to the buttons we'll add event listeners to
     const signInBtn = document.getElementById('signInBtn');
     const contactBtn = document.getElementById('contactBtn');
+    const newsletterBtn = document.getElementById('newsletterBtn');
     
     // Sign In Button Handler
     if (signInBtn) {
@@ -87,5 +88,42 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
+    // Newsletter Subscription Handler
+    if (newsletterBtn) {
+        newsletterBtn.addEventListener('click', function() {
+            // Get email from newsletter input
+            const email = document.getElementById('newsletter-email').value;
+
+            // Validate email format
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Send POST request to backend /newsletter endpoint
+            fetch('/newsletter', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Error: ' + data.error);
+                } else {
+                    alert('Successfully subscribed! Check your email for confirmation.');
+                    document.getElementById('newsletter-email').value = '';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Connection error: ' + error.message);
+            });
+        });
+    }
 });
+
 

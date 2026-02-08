@@ -68,7 +68,14 @@ Handles client-side interactions:
    - Clears form after successful submission
    - Shows error/success alerts
 
-3. **Event-Driven Architecture**
+3. **Newsletter Subscription Handler**
+   - Gets email from newsletter input
+   - Validates email format
+   - Sends POST request to backend /newsletter endpoint
+   - Clears input after successful subscription
+   - Shows confirmation message
+
+4. **Event-Driven Architecture**
    - Uses `addEventListener()` for button clicks
    - Waits for DOM to load with `DOMContentLoaded` event
    - Implements Promise-based async/await pattern with `fetch()`
@@ -99,6 +106,12 @@ Python backend using Flask framework with 4 main routes:
    - Validates all required fields
    - Returns success response after processing
    - Currently logs to console (could send email in production)
+
+5. **POST /newsletter (Newsletter Subscription API)**
+   - Receives email from frontend
+   - Validates email format
+   - Stores subscription in database (or sends confirmation email)
+   - Returns success/error response
 
 #### Key Backend Concepts:
 - **CORS (Cross-Origin Resource Sharing)** - Allows frontend to call API
@@ -195,16 +208,33 @@ Example from HTML:
 
 ---
 
+## Recent Updates (February 2026)
+
+**New Features Added:**
+1. ✅ Class Schedule section - Interactive weekly schedule with colored class types
+2. ✅ Testimonials/Success Stories - Member reviews with star ratings
+3. ✅ FAQ Section - Expandable Q&A with gym information
+4. ✅ Newsletter Signup - Email subscription feature
+5. ✅ Google Maps Integration - Embedded interactive map showing Itahari Bus Park location
+6. ✅ Enhanced Navigation - Updated header menu links
+7. ✅ Social Media Links - Clickable social icons (Facebook, Twitter, Instagram, YouTube)
+8. ✅ Fixed Sarah Chan Photo - Corrected trainer photo URL
+
+---
+
 ## Future Enhancements
 
 Possible improvements to make the project more complete:
-1. Database integration - Store user accounts and contact messages
-2. Email service - Send actual emails for contact form
+1. Database integration - Store user accounts, contact messages, and newsletter subscriptions
+2. Email service - Send actual emails for contact form and newsletters
 3. Authentication - Implement JWT tokens for secure sign-in
 4. User dashboard - Show user profile after sign-in
-5. Payment integration - For membership purchases
-6. Image optimization - Lazy loading for faster page load
-7. Admin panel - Manage classes, trainers, memberships
+5. Class Booking System - Allow members to book classes online
+6. Payment integration - For membership purchases
+7. Image optimization - Lazy loading for faster page load
+8. Admin panel - Manage classes, trainers, memberships
+9. SMS Notifications - Send class reminders via SMS
+10. Mobile App - React Native or Flutter app
 
 ---
 
@@ -226,15 +256,19 @@ The Flask server will start at http://localhost:5000
 ## File Descriptions in Detail
 
 ### index.html
-- **Header section**: Logo, navigation menu, sign-in button
+- **Header section**: Logo, navigation menu, sign-in button with updated links
 - **Hero/Home section**: Main landing content with image
 - **Stats section**: Key metrics (users, classes, trainers, locations)
 - **About section**: Company mission and values
 - **Services section**: Three main services (training, classes, nutrition)
-- **Trainers section**: Team member profiles
-- **Membership section**: Four pricing tiers with features
-- **Contact section**: Form to send messages
-- **Footer section**: Company info and daily workout schedule
+- **Trainers section**: Team member profiles with photos
+- **Membership section**: Four pricing tiers with features (Basic, Premium, VIP, Student)
+- **Class Schedule section**: Weekly class schedule with times and instructor names
+- **Testimonials/Success Stories section**: 3-star member reviews with transformations
+- **FAQ section**: 6 expandable questions and answers about the gym
+- **Newsletter section**: Email subscription form to stay updated
+- **Contact section**: Contact form with embedded Google Map (Itahari Bus Park, Nepal location)
+- **Footer section**: Company info and daily workout schedule with social media links
 
 ### style.css
 - Lines 1-42: Background and foundational styles
